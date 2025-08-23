@@ -1,6 +1,6 @@
 # Reuth Rehabilitation Center Management System
 
-A comprehensive, role-based healthcare management platform designed to streamline rehabilitation care delivery through collaborative interfaces, performance tracking, and intelligent patient management.
+A comprehensive, role-based healthcare management platform designed to streamline rehabilitation care delivery through collaborative interfaces, performance tracking, and intelligent patient management. Test credentials at bottom.
 
 ## 🌟 Overview
 
