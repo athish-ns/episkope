@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Episkope</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      .logo-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: relative;
+        z-index: 1000;
+      }
+      
+      .logo-header img {
+        height: 50px;
+        width: auto;
+        filter: brightness(0) invert(1);
+        transition: transform 0.3s ease;
+      }
+      
+      .logo-header img:hover {
+        transform: scale(1.05);
+      }
+      
+      .logo-text {
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 10px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+      
+      @media (max-width: 768px) {
+        .logo-header img {
+          height: 40px;
+        }
+        .logo-text {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html> 
