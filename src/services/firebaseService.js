@@ -6,7 +6,9 @@ import {
   updateProfile,
   updateEmail,
   updatePassword,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  initializeApp,
+  getAuth
 } from 'firebase/auth';
 import { 
   doc, 
@@ -22,12 +24,28 @@ import {
   getDocs,
   addDoc,
   serverTimestamp,
-  onSnapshot
+  onSnapshot,
+  getFirestore
 } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL, deleteObject, getStorage } from 'firebase/storage';
 
-// Import Firebase instances from config
-import { auth, db, storage } from '../config/firebase';
+// Firebase configuration from environment variables
+const firebaseConfig = {
+  apiKey: import.meta.env?.VITE_FIREBASE_API_KEY || process.env?.REACT_APP_FIREBASE_API_KEY,
+  authDomain: import.meta.env?.VITE_FIREBASE_AUTH_DOMAIN || process.env?.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env?.VITE_FIREBASE_PROJECT_ID || process.env?.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env?.VITE_FIREBASE_STORAGE_BUCKET || process.env?.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env?.VITE_FIREBASE_MESSAGING_SENDER_ID || process.env?.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env?.VITE_FIREBASE_APP_ID || process.env?.REACT_APP_FIREBASE_APP_ID
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase services
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
 // Utility function for retrying operations
 const retryOperation = async (operation, maxRetries = 3, delay = 1000) => {
