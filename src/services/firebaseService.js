@@ -689,3 +689,6 @@ export default {
   storage: storageService,
   utils: utils
 };
+
+// Export individual instances for direct imports
+export { auth, db, storage };
